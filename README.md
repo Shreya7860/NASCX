@@ -1,6 +1,6 @@
-# SemComm MTP Project
+# Network-Aware Semantic Communication for XR in 6G Networks (NASCX)
 
-A 5G network simulation project using OMNeT++ 6.2.0, INET 4.5.4, and Simu5G 1.3.0. All frameworks are included and pre-configured for command-line use.
+A 5G/6G network simulation project using OMNeT++ 6.2.0, INET 4.5.4, and Simu5G 1.3.0. All frameworks are included and pre-configured for command-line use.
 
 ## Quick Start
 
@@ -16,8 +16,8 @@ A 5G network simulation project using OMNeT++ 6.2.0, INET 4.5.4, and Simu5G 1.3.
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/satyam-kr03/NASCX.git
+cd NASCX
 ```
 
 2. **Install dependencies using Conda:**
@@ -68,29 +68,16 @@ cd ..
 
 6. **Add frameworks to your PATH:**
 
-Add these lines to your `~/.bashrc` (adjust paths if needed):
+Add these lines to your `~/.bashrc` (adjust the base path if you cloned to a different location):
 
 ```bash
-# First, ensure system paths are preserved
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
-
-# Add OMNeT++, INET, and Simu5G (suppress banner output)
-source ~/path/to/YOUR_REPO_NAME/omnetpp-6.2.0/setenv > /dev/null 2>&1
-source ~/path/to/YOUR_REPO_NAME/inet4.5/setenv > /dev/null 2>&1
-source ~/path/to/YOUR_REPO_NAME/simu5g-1.3.0/setenv > /dev/null 2>&1
-```
-
-You can add these lines with:
-
-```bash
-echo 'export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH' >> ~/.bashrc
-echo 'source ~/path/to/YOUR_REPO_NAME/omnetpp-6.2.0/setenv > /dev/null 2>&1' >> ~/.bashrc
-echo 'source ~/path/to/YOUR_REPO_NAME/inet4.5/setenv > /dev/null 2>&1' >> ~/.bashrc
-echo 'source ~/path/to/YOUR_REPO_NAME/simu5g-1.3.0/setenv > /dev/null 2>&1' >> ~/.bashrc
+echo 'source ~/NASCX/omnetpp-6.2.0/setenv > /dev/null 2>&1' >> ~/.bashrc
+echo 'source ~/NASCX/inet4.5/setenv > /dev/null 2>&1' >> ~/.bashrc
+echo 'source ~/NASCX/simu5g-1.3.0/setenv > /dev/null 2>&1' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-**Important:** Replace `~/path/to/YOUR_REPO_NAME` with your actual repository path.
+**Note:** If you cloned the repository to a different location, replace `~/NASCX` with your actual path.
 
 ## Usage
 
