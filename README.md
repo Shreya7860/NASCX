@@ -1,4 +1,4 @@
-# Network-Aware Semantic Communication for XR in 6G Networks
+# SemComm MTP Project
 
 A 5G network simulation project using OMNeT++ 6.2.0, INET 4.5.4, and Simu5G 1.3.0. All frameworks are included and pre-configured for command-line use.
 
@@ -35,6 +35,11 @@ conda install -c conda-forge bison flex python-devel
 
 ```bash
 cd omnetpp-6.2.0
+
+# Create configure.user from template (required)
+cp configure.user.dist configure.user
+
+# Set up environment and build
 source setenv
 ./configure
 make -j$(nproc)
@@ -45,6 +50,7 @@ cd ..
 
 ```bash
 cd inet4.5
+source ../omnetpp-6.2.0/setenv
 make makefiles
 make MODE=release -j$(nproc)
 cd ..
@@ -54,19 +60,37 @@ cd ..
 
 ```bash
 cd simu5g-1.3.0
+source ../omnetpp-6.2.0/setenv
 make makefiles
 make MODE=release -j$(nproc)
 cd ..
 ```
 
-6. **Add OMNeT++ to your PATH:**
+6. **Add frameworks to your PATH:**
 
-Add this line to your `~/.bashrc` (adjust path if needed):
+Add these lines to your `~/.bashrc` (adjust paths if needed):
 
 ```bash
-echo 'source ~/path/to/YOUR_REPO_NAME/omnetpp-6.2.0/setenv' >> ~/.bashrc
+# First, ensure system paths are preserved
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+
+# Add OMNeT++, INET, and Simu5G (suppress banner output)
+source ~/path/to/YOUR_REPO_NAME/omnetpp-6.2.0/setenv > /dev/null 2>&1
+source ~/path/to/YOUR_REPO_NAME/inet4.5/setenv > /dev/null 2>&1
+source ~/path/to/YOUR_REPO_NAME/simu5g-1.3.0/setenv > /dev/null 2>&1
+```
+
+You can add these lines with:
+
+```bash
+echo 'export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH' >> ~/.bashrc
+echo 'source ~/path/to/YOUR_REPO_NAME/omnetpp-6.2.0/setenv > /dev/null 2>&1' >> ~/.bashrc
+echo 'source ~/path/to/YOUR_REPO_NAME/inet4.5/setenv > /dev/null 2>&1' >> ~/.bashrc
+echo 'source ~/path/to/YOUR_REPO_NAME/simu5g-1.3.0/setenv > /dev/null 2>&1' >> ~/.bashrc
 source ~/.bashrc
 ```
+
+**Important:** Replace `~/path/to/YOUR_REPO_NAME` with your actual repository path.
 
 ## Usage
 
@@ -119,6 +143,15 @@ cd simu5g-1.3.0/simulations
 - All frameworks are set up for release mode builds
 
 ## Troubleshooting
+
+### Error: "does not look like an OMNeT++ root directory"
+
+This happens if `configure.user` is missing. Run:
+```bash
+cd omnetpp-6.2.0
+cp configure.user.dist configure.user
+source setenv
+```
 
 ### Commands not found after terminal restart
 
