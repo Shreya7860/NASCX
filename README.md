@@ -1,4 +1,4 @@
-# Network-Aware Semantic Communication for XR in 6G Networks (NASCX)
+# Network-Aware Semantic Communication for XR in 6G Networks
 
 A 5G/6G network simulation project using OMNeT++ 6.2.0, INET 4.5.4, and Simu5G 1.3.0. All frameworks are included and pre-configured for command-line use.
 
