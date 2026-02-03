@@ -68,7 +68,7 @@
 ## Running Simulations
 
 ```bash
-cd /home/satyam/Desktop/NASCX && ./opp_shell.sh
+cd /home/satyam/Desktop/NASCX
 # Inside the shell:
 cd simu5g-1.3.0/simulations/NR/xr
 
